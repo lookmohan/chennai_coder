@@ -19,7 +19,7 @@ export const FreelanceDev: React.FC = () => {
           style={{
             padding: '3.5rem 2.5rem',
             borderRadius: '24px',
-            background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.95))',
+            background: 'linear-gradient(135deg, rgba(23, 158, 211, 0.8), rgba(175, 195, 240, 0.95))',
             border: '1px solid var(--border-highlight)',
             boxShadow: 'var(--shadow-glow)'
           }}
