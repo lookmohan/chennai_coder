@@ -11,9 +11,9 @@ Building intelligent software for businesses while empowering the next generatio
 </p>
 
 <p>
-<a href="https://chennai-coder.vercel.app/" target=_blank>🌐 Website</a> •
-<a href="https://chennai-coder.vercel.app/#courses">📚 Courses</a> •
-<a href="https://chennai-coder.vercel.app/#contact">💼 Hire Us</a> •
+  <a href="https://chennai-coder.vercel.app/" target="_blank" rel="noopener noreferrer">🌐 Website</a> •
+  <a href="https://chennai-coder.vercel.app/#courses" target="_blank" rel="noopener noreferrer">📚 Courses</a> •
+  <a href="https://chennai-coder.vercel.app/#contact" target="_blank" rel="noopener noreferrer">💼 Hire Us</a> •
 </p>
 
 </div>
