@@ -50,7 +50,7 @@ export const HowItWorks: React.FC = () => {
             position: 'relative'
           }}
         >
-          {steps.map((step, index) => (
+          {steps.map((step) => (
             <div
               key={step.number}
               className="glass-card"
