@@ -13,18 +13,20 @@ export const Courses: React.FC = () => {
 
         {/* Section Header */}
         <div className="section-header">
-          <span className="section-tag">Learn Online</span>
+  <span className="section-tag">
+    Learn Online with Chennai Coder
+  </span>
 
-          <h2 className="section-title">
-            Programming Courses
-          </h2>
+  <h2 className="section-title">
+    Programming & AI Courses in Chennai
+  </h2>
 
-          <p className="section-desc">
-            Practical, beginner-friendly programming and technology courses
-            designed around live coding, hands-on practice, and real-world
-            projects.
-          </p>
-        </div>
+  <p className="section-desc">
+    Learn Python, SQL, Web Development, AI & Machine Learning,
+    OpenCV, FastAPI and LLM application development through
+    practical, project-based training with Chennai Coder.
+  </p>
+</div>
 
         {/* Fee Information Banner */}
         <div
