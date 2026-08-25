@@ -9,10 +9,12 @@ export const Projects: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <span className="section-tag">Portfolio</span>
-          <h2 className="section-title">Featured Projects</h2>
+          <h2 className="section-title">AI & Software Projects</h2>
           <p className="section-desc">
-            Real-world applications including AI systems, machine learning models, and full-stack software projects.
-          </p>
+  Explore AI, machine learning, Python, and software development projects
+  built by Chennai Coder, including RAG applications, computer vision
+  systems, and practical AI solutions.
+</p>
         </div>
 
         {/* Projects Grid */}
