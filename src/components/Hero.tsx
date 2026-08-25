@@ -5,6 +5,7 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="hero"
+      aria-labelledby="hero-title"
       style={{
         minHeight: '100vh',
         paddingTop: 'calc(var(--nav-height) + 3rem)',
@@ -24,11 +25,13 @@ export const Hero: React.FC = () => {
           width: '500px',
           height: '500px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(0,0,0,0) 70%)',
+          background:
+            'radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(0,0,0,0) 70%)',
           pointerEvents: 'none',
           zIndex: 0
         }}
       />
+
       <div
         style={{
           position: 'absolute',
@@ -37,13 +40,20 @@ export const Hero: React.FC = () => {
           width: '450px',
           height: '450px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(0,0,0,0) 70%)',
+          background:
+            'radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(0,0,0,0) 70%)',
           pointerEvents: 'none',
           zIndex: 0
         }}
       />
 
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div
+        className="container"
+        style={{
+          position: 'relative',
+          zIndex: 1
+        }}
+      >
         <div
           style={{
             display: 'grid',
@@ -53,8 +63,10 @@ export const Hero: React.FC = () => {
           }}
           className="hero-grid"
         >
-          {/* Left Column: Copy & Actions */}
+
+          {/* Left Column */}
           <div>
+
             {/* Tagline Badge */}
             <div
               style={{
@@ -75,7 +87,9 @@ export const Hero: React.FC = () => {
               <span>AI • Software • Training</span>
             </div>
 
+            {/* Main SEO Heading */}
             <h1
+              id="hero-title"
               style={{
                 fontSize: 'clamp(2.2rem, 5vw, 3.5rem)',
                 lineHeight: 1.2,
@@ -83,11 +97,16 @@ export const Hero: React.FC = () => {
                 fontWeight: 800
               }}
             >
-              Learn Programming<span className="gradient-text" style={{ display: 'block' }}>
-                Build Software • Create AI
+              Chennai Coder
+              <span
+                className="gradient-text"
+                style={{ display: 'block' }}
+              >
+                Programming & AI Training in Chennai
               </span>
             </h1>
 
+            {/* SEO-Friendly Introduction */}
             <p
               style={{
                 fontSize: 'clamp(1rem, 2vw, 1.25rem)',
@@ -97,7 +116,11 @@ export const Hero: React.FC = () => {
                 lineHeight: 1.7
               }}
             >
-              Welcome to <strong>Chennai Coder</strong>. I help businesses build AI-powered applications, custom software, and automation solutions. I also provide hands-on programming training for aspiring developers.
+              Learn Python, SQL, Web Development, AI & Machine Learning,
+              OpenCV, FastAPI and LLM development through practical,
+              project-based training with <strong>Chennai Coder</strong>.
+              I also help businesses build AI-powered applications,
+              custom software and automation solutions.
             </p>
 
             {/* CTA Buttons */}
@@ -109,15 +132,29 @@ export const Hero: React.FC = () => {
                 alignItems: 'center'
               }}
             >
-              <a href="#courses" className="btn btn-primary">
+              <a
+                href="#courses"
+                className="btn btn-primary"
+                aria-label="View programming courses"
+              >
                 <BookOpen size={18} />
                 Learn Programming
               </a>
-              <a href="#freelance" className="btn btn-accent">
+
+              <a
+                href="#freelance"
+                className="btn btn-accent"
+                aria-label="Hire Chennai Coder for software development"
+              >
                 <Code size={18} />
                 Hire a Developer
               </a>
-              <a href="#contact" className="btn btn-secondary">
+
+              <a
+                href="#contact"
+                className="btn btn-secondary"
+                aria-label="Contact Chennai Coder"
+              >
                 <Mail size={18} />
                 Contact Me
               </a>
@@ -143,12 +180,22 @@ export const Hero: React.FC = () => {
                   boxShadow: '0 0 8px var(--color-success)'
                 }}
               />
-              <span>Available for AI projects, software development, and training</span>
+
+              <span>
+                Available for AI projects, software development,
+                and programming training
+              </span>
             </div>
+
           </div>
 
-          {/* Right Column: Mohanraj Profile Card */}
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          {/* Right Column: Mohanraj Profile */}
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >
             <div
               style={{
                 position: 'relative',
@@ -156,19 +203,22 @@ export const Hero: React.FC = () => {
                 maxWidth: '420px'
               }}
             >
-              {/* Outer Glowing Border Box */}
+
+              {/* Outer Glowing Border */}
               <div
                 style={{
                   position: 'absolute',
                   inset: '-12px',
                   borderRadius: '28px',
-                  background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))',
+                  background:
+                    'linear-gradient(135deg, var(--color-primary), var(--color-accent))',
                   opacity: 0.4,
                   filter: 'blur(20px)',
                   zIndex: 0
                 }}
               />
 
+              {/* Profile Card */}
               <div
                 className="glass-card"
                 style={{
@@ -179,9 +229,14 @@ export const Hero: React.FC = () => {
                   borderRadius: '24px'
                 }}
               >
+
                 <img
                   src="/assets/mohanraj-profile.jpg"
-                  alt="Mohanraj - Founder of Chennai Coder"
+                  alt="Mohanraj, founder of Chennai Coder and Python trainer"
+                  width="420"
+                  height="420"
+                  loading="eager"
+                  fetchPriority="high"
                   style={{
                     width: '100%',
                     height: 'auto',
@@ -192,7 +247,7 @@ export const Hero: React.FC = () => {
                   }}
                 />
 
-                {/* Status Info */}
+                {/* Profile Information */}
                 <div
                   style={{
                     marginTop: '1.25rem',
@@ -203,16 +258,31 @@ export const Hero: React.FC = () => {
                     textAlign: 'center'
                   }}
                 >
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-heading)', marginBottom: '0.3rem' }}>
-                    Mohanraj
+                  <div
+                    style={{
+                      fontSize: '0.85rem',
+                      fontWeight: 600,
+                      color: 'var(--text-heading)',
+                      marginBottom: '0.3rem'
+                    }}
+                  >
+                    Mohanraj — Founder of Chennai Coder
                   </div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-body)' }}>
+
+                  <div
+                    style={{
+                      fontSize: '0.8rem',
+                      color: 'var(--text-body)'
+                    }}
+                  >
                     AI Developer • Python Trainer • Software Engineer
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
