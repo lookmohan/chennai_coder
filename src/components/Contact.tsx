@@ -1,373 +1,1171 @@
-import React, { useState } from 'react';
-import { Mail, Phone, Send, MessageSquareCheck, ExternalLink } from 'lucide-react';
+import React, { useState } from "react";
+import {
+  Mail,
+  Phone,
+  Send,
+  MessageSquareCheck,
+  ExternalLink,
+  MapPin,
+  Clock
+} from "lucide-react";
 
 export const Contact: React.FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('Course Inquiry');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("Course Inquiry");
+  const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!name || !message) return;
 
-    const formattedText = `Hi Mohanraj, I am ${name} (${email}). ${subject}: ${message}`;
-    const whatsappUrl = `https://wa.me/917395981362?text=${encodeURIComponent(formattedText)}`;
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      return;
+    }
 
-    window.open(whatsappUrl, '_blank');
+    const formattedText =
+      `Hi Mohanraj,\n\n` +
+      `My name is ${name}.\n` +
+      `Email: ${email}\n` +
+      `Inquiry: ${subject}\n\n` +
+      `Message:\n${message}\n\n` +
+      `I found Chennai Coder through the website.`;
+
+    const whatsappUrl =
+      `https://wa.me/917395981362?text=${encodeURIComponent(
+        formattedText
+      )}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
     setSubmitted(true);
-    
-    // Reset form after 3 seconds
+
     setTimeout(() => {
       setSubmitted(false);
-      setName('');
-      setEmail('');
-      setMessage('');
-      setSubject('Course Inquiry');
-    }, 3000);
+      setName("");
+      setEmail("");
+      setMessage("");
+      setSubject("Course Inquiry");
+    }, 4000);
   };
 
   return (
-    <section id="contact" className="section-padding" style={{ background: 'var(--bg-surface)' }}>
+    <section
+      id="contact"
+      className="section-padding contact-section"
+      aria-labelledby="contact-title"
+    >
       <div className="container">
-        {/* Section Header */}
-        <div className="section-header">
-          <span className="section-tag">Get in Touch</span>
-          <h2 className="section-title">Let's Connect</h2>
+
+        {/* =========================================
+            SECTION HEADER
+        ========================================== */}
+
+        <header className="section-header">
+
+          <span className="section-tag">
+            Contact Chennai Coder
+          </span>
+
+          <h2
+            id="contact-title"
+            className="section-title"
+          >
+            Let's Build, Learn & Work Together
+          </h2>
+
           <p className="section-desc">
-            Interested in AI solutions, software development, or programming training? Reach out to discuss your needs.
+            Looking for programming training, AI development, machine
+            learning solutions, or custom software development? Contact
+            Chennai Coder to discuss your learning goals or project
+            requirements.
           </p>
-        </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '3rem',
-            alignItems: 'start'
-          }}
-        >
-          {/* Left Column: Contact Methods */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <h3 style={{ fontSize: '1.4rem', color: 'var(--text-heading)', marginBottom: '0.5rem', fontWeight: 700 }}>
-              Direct Contact
-            </h3>
+        </header>
 
-            {/* Email Card */}
+
+        {/* =========================================
+            CONTACT CONTENT
+        ========================================== */}
+
+        <div className="contact-grid">
+
+          {/* =======================================
+              LEFT COLUMN
+          ======================================== */}
+
+          <div className="contact-info">
+
+            <div className="contact-heading">
+
+              <span className="contact-eyebrow">
+                Get in touch
+              </span>
+
+              <h3>
+                Let's discuss your requirements
+              </h3>
+
+              <p>
+                Whether you want to learn programming, build an AI
+                application, or develop custom software, you can contact
+                Chennai Coder directly.
+              </p>
+
+            </div>
+
+
+            {/* =====================================
+                EMAIL
+            ====================================== */}
+
             <a
               href="mailto:chennaicoder.support@gmail.com"
-              className="glass-card"
-              style={{
-                padding: '1.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1.25rem',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--color-primary)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--border-color)';
-              }}
+              className="glass-card contact-method"
+              aria-label="Email Chennai Coder"
             >
-              <div
-                style={{
-                  width: '48px',
-                  height: '48px',
-                  borderRadius: '12px',
-                  background: 'var(--color-primary-light)',
-                  color: 'var(--color-primary)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}
-              >
-                <Mail size={24} />
+              <div className="contact-method-icon email-icon">
+                <Mail size={22} aria-hidden="true" />
               </div>
-              <div>
-                <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)', marginBottom: '0.2rem' }}>
+
+              <div className="contact-method-content">
+
+                <span className="contact-label">
                   Email
-                </div>
-                <h4 style={{ fontSize: '1rem', color: 'var(--text-heading)', margin: 0 }}>
+                </span>
+
+                <strong>
                   chennaicoder.support@gmail.com
-                </h4>
+                </strong>
+
+                <small>
+                  For course and project inquiries
+                </small>
+
               </div>
             </a>
 
-            {/* WhatsApp Card */}
+
+            {/* =====================================
+                WHATSAPP
+            ====================================== */}
+
             <a
               href="https://wa.me/917395981362"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card"
-              style={{
-                padding: '1.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1.25rem',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--color-success)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--border-color)';
-              }}
+              className="glass-card contact-method"
+              aria-label="Contact Chennai Coder on WhatsApp"
             >
-              <div
-                style={{
-                  width: '48px',
-                  height: '48px',
-                  borderRadius: '12px',
-                  background: 'rgba(16, 185, 129, 0.15)',
-                  color: 'var(--color-success)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}
-              >
-                <Phone size={24} />
+              <div className="contact-method-icon whatsapp-icon">
+                <Phone size={22} aria-hidden="true" />
               </div>
-              <div>
-                <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)', marginBottom: '0.2rem' }}>
+
+              <div className="contact-method-content">
+
+                <span className="contact-label">
                   WhatsApp / Phone
-                </div>
-                <h4 style={{ fontSize: '1rem', color: 'var(--text-heading)', margin: 0 }}>
+                </span>
+
+                <strong>
                   +91 7395981362
-                </h4>
+                </strong>
+
+                <small>
+                  Quick communication and project discussions
+                </small>
+
               </div>
             </a>
 
-            {/* Social Links */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '0.5rem' }}>
+
+            {/* =====================================
+                LOCATION / AVAILABILITY
+            ====================================== */}
+
+            <div className="contact-meta-grid">
+
+              <div className="contact-meta">
+
+                <MapPin
+                  size={18}
+                  aria-hidden="true"
+                />
+
+                <div>
+                  <span>
+                    Location
+                  </span>
+
+                  <strong>
+                    Chennai, Tamil Nadu
+                  </strong>
+                </div>
+
+              </div>
+
+
+              <div className="contact-meta">
+
+                <Clock
+                  size={18}
+                  aria-hidden="true"
+                />
+
+                <div>
+                  <span>
+                    Availability
+                  </span>
+
+                  <strong>
+                    Online & Chennai
+                  </strong>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* =====================================
+                SOCIAL LINKS
+            ====================================== */}
+
+            <div className="social-links">
+
               <a
                 href="https://in.linkedin.com/in/moganraj"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card"
-                style={{
-                  padding: '1.25rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#0A66C2';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--border-color)';
-                }}
+                className="glass-card social-link"
+                aria-label="Visit Mohanraj on LinkedIn"
               >
-                <ExternalLink size={20} style={{ color: '#0A66C2' }} />
+                <ExternalLink
+                  size={18}
+                  aria-hidden="true"
+                />
+
                 <div>
-                  <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>LinkedIn</div>
-                  <h5 style={{ fontSize: '0.9rem', color: 'var(--text-heading)', margin: 0 }}>Moganraj</h5>
+                  <span>
+                    LinkedIn
+                  </span>
+
+                  <strong>
+                    Moganraj
+                  </strong>
                 </div>
               </a>
+
 
               <a
                 href="https://github.com/lookmohan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card"
-                style={{
-                  padding: '1.25rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--color-accent)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--border-color)';
-                }}
+                className="glass-card social-link"
+                aria-label="Visit Chennai Coder GitHub profile"
               >
-                <ExternalLink size={20} style={{ color: 'var(--text-heading)' }} />
+                <ExternalLink
+                  size={18}
+                  aria-hidden="true"
+                />
+
                 <div>
-                  <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>GitHub</div>
-                  <h5 style={{ fontSize: '0.9rem', color: 'var(--text-heading)', margin: 0 }}>lookmohan</h5>
+                  <span>
+                    GitHub
+                  </span>
+
+                  <strong>
+                    lookmohan
+                  </strong>
                 </div>
               </a>
+
             </div>
+
           </div>
 
-          {/* Right Column: Contact Form */}
-          <div className="glass-card" style={{ padding: '2.5rem' }}>
-            <h3 style={{ fontSize: '1.4rem', color: 'var(--text-heading)', marginBottom: '1.5rem', fontWeight: 700 }}>
-              Send a Message
-            </h3>
+
+          {/* =======================================
+              RIGHT COLUMN — CONTACT FORM
+          ======================================== */}
+
+          <div className="glass-card contact-form-card">
+
+            <div className="form-heading">
+
+              <h3>
+                Send an Inquiry
+              </h3>
+
+              <p>
+                Fill in the details below and continue the conversation
+                directly through WhatsApp.
+              </p>
+
+            </div>
+
 
             {submitted ? (
+
+              /* ===================================
+                 SUCCESS / WHATSAPP STATE
+              ==================================== */
+
               <div
-                style={{
-                  textAlign: 'center',
-                  padding: '2rem 1rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: '1rem'
-                }}
+                className="contact-success"
+                role="status"
+                aria-live="polite"
               >
-                <div
-                  style={{
-                    width: '64px',
-                    height: '64px',
-                    borderRadius: '50%',
-                    background: 'rgba(16, 185, 129, 0.15)',
-                    color: 'var(--color-success)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
-                >
-                  <MessageSquareCheck size={36} />
+
+                <div className="success-icon">
+                  <MessageSquareCheck
+                    size={34}
+                    aria-hidden="true"
+                  />
                 </div>
-                <h4 style={{ fontSize: '1.25rem', color: 'var(--text-heading)', margin: 0 }}>
-                  Message Sent!
+
+                <h4>
+                  Opening WhatsApp
                 </h4>
-                <p style={{ color: 'var(--text-body)', fontSize: '0.95rem', margin: 0 }}>
-                  Opening WhatsApp to send your message.
+
+                <p>
+                  Your inquiry has been prepared. WhatsApp should open
+                  in a new tab so you can review and send the message.
                 </p>
+
               </div>
+
             ) : (
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <div>
-                  <label
-                    htmlFor="name"
-                    style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-heading)', marginBottom: '0.5rem' }}
-                  >
+
+              /* ===================================
+                 FORM
+              ==================================== */
+
+              <form
+                onSubmit={handleSubmit}
+                className="contact-form"
+              >
+
+                {/* Name */}
+
+                <div className="form-group">
+
+                  <label htmlFor="contact-name">
                     Your Name
                   </label>
+
                   <input
                     type="text"
-                    id="name"
+                    id="contact-name"
+                    name="name"
                     required
+                    autoComplete="name"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) =>
+                      setName(e.target.value)
+                    }
                     placeholder="Enter your name"
-                    style={{
-                      width: '100%',
-                      padding: '0.8rem 1rem',
-                      borderRadius: '10px',
-                      background: 'var(--bg-main)',
-                      border: '1px solid var(--border-color)',
-                      color: 'var(--text-heading)',
-                      fontFamily: 'inherit',
-                      fontSize: '0.95rem',
-                      transition: 'border-color 0.2s ease'
-                    }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = 'var(--color-accent)')}
-                    onBlur={(e) => (e.currentTarget.style.borderColor = 'var(--border-color)')}
                   />
+
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="email"
-                    style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-heading)', marginBottom: '0.5rem' }}
-                  >
+
+                {/* Email */}
+
+                <div className="form-group">
+
+                  <label htmlFor="contact-email">
                     Email Address
                   </label>
+
                   <input
                     type="email"
-                    id="email"
+                    id="contact-email"
+                    name="email"
                     required
+                    autoComplete="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) =>
+                      setEmail(e.target.value)
+                    }
                     placeholder="your@email.com"
-                    style={{
-                      width: '100%',
-                      padding: '0.8rem 1rem',
-                      borderRadius: '10px',
-                      background: 'var(--bg-main)',
-                      border: '1px solid var(--border-color)',
-                      color: 'var(--text-heading)',
-                      fontFamily: 'inherit',
-                      fontSize: '0.95rem',
-                      transition: 'border-color 0.2s ease'
-                    }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = 'var(--color-accent)')}
-                    onBlur={(e) => (e.currentTarget.style.borderColor = 'var(--border-color)')}
                   />
+
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="subject"
-                    style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-heading)', marginBottom: '0.5rem' }}
-                  >
-                    Inquiry Type
+
+                {/* Inquiry Type */}
+
+                <div className="form-group">
+
+                  <label htmlFor="contact-subject">
+                    What can I help you with?
                   </label>
+
                   <select
-                    id="subject"
+                    id="contact-subject"
+                    name="subject"
                     value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
-                    style={{
-                      width: '100%',
-                      padding: '0.8rem 1rem',
-                      borderRadius: '10px',
-                      background: 'var(--bg-main)',
-                      border: '1px solid var(--border-color)',
-                      color: 'var(--text-heading)',
-                      fontFamily: 'inherit',
-                      fontSize: '0.95rem',
-                      cursor: 'pointer'
-                    }}
+                    onChange={(e) =>
+                      setSubject(e.target.value)
+                    }
                   >
-                    <option value="Course Inquiry">Programming Course</option>
-                    <option value="AI Project">AI Solution Project</option>
-                    <option value="Software Development">Software Development</option>
-                    <option value="General Question">General Question</option>
+                    <option value="Course Inquiry">
+                      Programming Course
+                    </option>
+
+                    <option value="AI Project">
+                      AI / Machine Learning Project
+                    </option>
+
+                    <option value="Software Development">
+                      Custom Software Development
+                    </option>
+
+                    <option value="Web Development">
+                      Web Development
+                    </option>
+
+                    <option value="General Question">
+                      General Question
+                    </option>
                   </select>
+
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="message"
-                    style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-heading)', marginBottom: '0.5rem' }}
-                  >
+
+                {/* Message */}
+
+                <div className="form-group">
+
+                  <label htmlFor="contact-message">
                     Message
                   </label>
+
                   <textarea
-                    id="message"
-                    rows={4}
+                    id="contact-message"
+                    name="message"
+                    rows={5}
                     required
                     value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Tell me about your learning goals or project requirements..."
-                    style={{
-                      width: '100%',
-                      padding: '0.8rem 1rem',
-                      borderRadius: '10px',
-                      background: 'var(--bg-main)',
-                      border: '1px solid var(--border-color)',
-                      color: 'var(--text-heading)',
-                      fontFamily: 'inherit',
-                      fontSize: '0.95rem',
-                      resize: 'vertical',
-                      transition: 'border-color 0.2s ease'
-                    }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = 'var(--color-accent)')}
-                    onBlur={(e) => (e.currentTarget.style.borderColor = 'var(--border-color)')}
+                    onChange={(e) =>
+                      setMessage(e.target.value)
+                    }
+                    placeholder="Tell me about your learning goals, course requirements, or software project..."
                   />
+
                 </div>
 
-                <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '0.5rem' }}>
-                  <Send size={18} />
-                  Send via WhatsApp
+
+                {/* Submit */}
+
+                <button
+                  type="submit"
+                  className="btn btn-primary contact-submit"
+                >
+                  <Send
+                    size={18}
+                    aria-hidden="true"
+                  />
+
+                  Continue via WhatsApp
                 </button>
+
+
+                <p className="form-note">
+                  Your message will be prepared and opened in WhatsApp.
+                </p>
+
               </form>
+
             )}
+
           </div>
+
         </div>
+
       </div>
+
+
+      {/* =========================================
+          RESPONSIVE STYLES
+      ========================================== */}
+
+      <style>{`
+
+        /* =========================================
+           SECTION
+        ========================================== */
+
+        .contact-section {
+          background: var(--bg-surface);
+          position: relative;
+          overflow: hidden;
+        }
+
+
+        /* =========================================
+           MAIN GRID
+        ========================================== */
+
+        .contact-grid {
+          display: grid;
+
+          grid-template-columns:
+            minmax(0, 0.9fr)
+            minmax(0, 1.1fr);
+
+          gap: 3rem;
+
+          max-width: 1100px;
+
+          margin: 0 auto;
+
+          align-items: start;
+        }
+
+
+        /* =========================================
+           LEFT CONTENT
+        ========================================== */
+
+        .contact-info {
+          display: flex;
+
+          flex-direction: column;
+
+          gap: 1rem;
+
+          min-width: 0;
+        }
+
+        .contact-heading {
+          margin-bottom: 0.5rem;
+        }
+
+        .contact-eyebrow {
+          display: block;
+
+          color:
+            var(--color-accent);
+
+          font-size: 0.75rem;
+
+          font-weight: 700;
+
+          text-transform: uppercase;
+
+          letter-spacing: 1.2px;
+
+          margin-bottom: 0.5rem;
+        }
+
+        .contact-heading h3 {
+          margin: 0 0 0.75rem;
+
+          color:
+            var(--text-heading);
+
+          font-size: 1.55rem;
+
+          line-height: 1.3;
+
+          font-weight: 750;
+        }
+
+        .contact-heading p {
+          margin: 0;
+
+          color:
+            var(--text-body);
+
+          font-size: 0.95rem;
+
+          line-height: 1.7;
+
+          max-width: 520px;
+        }
+
+
+        /* =========================================
+           CONTACT METHODS
+        ========================================== */
+
+        .contact-method {
+          display: flex;
+
+          align-items: center;
+
+          gap: 1rem;
+
+          padding: 1.25rem;
+
+          text-decoration: none;
+
+          transition:
+            transform 0.25s ease,
+            border-color 0.25s ease;
+        }
+
+        .contact-method:hover {
+          transform: translateY(-3px);
+
+          border-color:
+            var(--color-accent);
+        }
+
+        .contact-method-icon {
+          width: 48px;
+          height: 48px;
+
+          flex-shrink: 0;
+
+          border-radius: 12px;
+
+          display: flex;
+
+          align-items: center;
+
+          justify-content: center;
+        }
+
+        .email-icon {
+          background:
+            var(--color-primary-light);
+
+          color:
+            var(--color-primary);
+        }
+
+        .whatsapp-icon {
+          background:
+            rgba(16, 185, 129, 0.15);
+
+          color:
+            var(--color-success);
+        }
+
+        .contact-method-content {
+          min-width: 0;
+
+          display: flex;
+
+          flex-direction: column;
+
+          gap: 0.2rem;
+        }
+
+        .contact-label {
+          color:
+            var(--text-muted);
+
+          font-size: 0.7rem;
+
+          font-weight: 700;
+
+          text-transform: uppercase;
+
+          letter-spacing: 1px;
+        }
+
+        .contact-method-content strong {
+          color:
+            var(--text-heading);
+
+          font-size: 0.92rem;
+
+          line-height: 1.4;
+
+          word-break: break-word;
+        }
+
+        .contact-method-content small {
+          color:
+            var(--text-body);
+
+          font-size: 0.75rem;
+
+          line-height: 1.4;
+        }
+
+
+        /* =========================================
+           LOCATION / AVAILABILITY
+        ========================================== */
+
+        .contact-meta-grid {
+          display: grid;
+
+          grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+          gap: 0.75rem;
+
+          margin-top: 0.25rem;
+        }
+
+        .contact-meta {
+          display: flex;
+
+          align-items: center;
+
+          gap: 0.7rem;
+
+          padding: 0.85rem;
+
+          border:
+            1px solid var(--border-color);
+
+          border-radius: 10px;
+
+          background:
+            var(--bg-main);
+
+          color:
+            var(--color-accent);
+        }
+
+        .contact-meta div {
+          display: flex;
+
+          flex-direction: column;
+
+          gap: 0.15rem;
+
+          min-width: 0;
+        }
+
+        .contact-meta span {
+          color:
+            var(--text-muted);
+
+          font-size: 0.68rem;
+
+          text-transform: uppercase;
+
+          letter-spacing: 0.7px;
+        }
+
+        .contact-meta strong {
+          color:
+            var(--text-heading);
+
+          font-size: 0.75rem;
+
+          line-height: 1.3;
+        }
+
+
+        /* =========================================
+           SOCIAL LINKS
+        ========================================== */
+
+        .social-links {
+          display: grid;
+
+          grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+          gap: 0.75rem;
+
+          margin-top: 0.25rem;
+        }
+
+        .social-link {
+          display: flex;
+
+          align-items: center;
+
+          gap: 0.65rem;
+
+          padding: 1rem;
+
+          text-decoration: none;
+
+          color:
+            var(--text-heading);
+
+          transition:
+            transform 0.25s ease,
+            border-color 0.25s ease;
+        }
+
+        .social-link:hover {
+          transform: translateY(-2px);
+
+          border-color:
+            var(--color-accent);
+        }
+
+        .social-link div {
+          display: flex;
+
+          flex-direction: column;
+
+          gap: 0.15rem;
+        }
+
+        .social-link span {
+          color:
+            var(--text-muted);
+
+          font-size: 0.68rem;
+        }
+
+        .social-link strong {
+          color:
+            var(--text-heading);
+
+          font-size: 0.82rem;
+        }
+
+
+        /* =========================================
+           FORM CARD
+        ========================================== */
+
+        .contact-form-card {
+          padding: 2rem;
+
+          min-width: 0;
+        }
+
+        .form-heading {
+          margin-bottom: 1.5rem;
+        }
+
+        .form-heading h3 {
+          margin: 0 0 0.45rem;
+
+          color:
+            var(--text-heading);
+
+          font-size: 1.4rem;
+
+          font-weight: 700;
+        }
+
+        .form-heading p {
+          margin: 0;
+
+          color:
+            var(--text-body);
+
+          font-size: 0.85rem;
+
+          line-height: 1.6;
+        }
+
+
+        /* =========================================
+           FORM
+        ========================================== */
+
+        .contact-form {
+          display: flex;
+
+          flex-direction: column;
+
+          gap: 1.15rem;
+        }
+
+        .form-group {
+          display: flex;
+
+          flex-direction: column;
+
+          gap: 0.45rem;
+        }
+
+        .form-group label {
+          color:
+            var(--text-heading);
+
+          font-size: 0.82rem;
+
+          font-weight: 650;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+          width: 100%;
+
+          box-sizing: border-box;
+
+          padding:
+            0.78rem 0.9rem;
+
+          border:
+            1px solid var(--border-color);
+
+          border-radius: 9px;
+
+          background:
+            var(--bg-main);
+
+          color:
+            var(--text-heading);
+
+          font-family:
+            inherit;
+
+          font-size: 0.9rem;
+
+          line-height: 1.5;
+
+          outline: none;
+
+          transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+          color:
+            var(--text-muted);
+
+          opacity: 0.8;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+          border-color:
+            var(--color-accent);
+
+          box-shadow:
+            0 0 0 3px
+            var(--color-accent-light);
+        }
+
+        .form-group textarea {
+          resize: vertical;
+
+          min-height: 120px;
+        }
+
+        .contact-submit {
+          width: 100%;
+
+          margin-top: 0.25rem;
+
+          justify-content: center;
+        }
+
+        .form-note {
+          margin: 0;
+
+          text-align: center;
+
+          color:
+            var(--text-muted);
+
+          font-size: 0.7rem;
+
+          line-height: 1.5;
+        }
+
+
+        /* =========================================
+           SUCCESS STATE
+        ========================================== */
+
+        .contact-success {
+          min-height: 380px;
+
+          padding: 2rem 1rem;
+
+          display: flex;
+
+          flex-direction: column;
+
+          align-items: center;
+
+          justify-content: center;
+
+          text-align: center;
+
+          gap: 0.9rem;
+        }
+
+        .success-icon {
+          width: 68px;
+          height: 68px;
+
+          border-radius: 50%;
+
+          display: flex;
+
+          align-items: center;
+
+          justify-content: center;
+
+          background:
+            rgba(16, 185, 129, 0.15);
+
+          color:
+            var(--color-success);
+
+          margin-bottom: 0.25rem;
+        }
+
+        .contact-success h4 {
+          margin: 0;
+
+          color:
+            var(--text-heading);
+
+          font-size: 1.3rem;
+        }
+
+        .contact-success p {
+          max-width: 430px;
+
+          margin: 0;
+
+          color:
+            var(--text-body);
+
+          font-size: 0.9rem;
+
+          line-height: 1.7;
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================== */
+
+        @media (max-width: 900px) {
+
+          .contact-grid {
+            grid-template-columns: 1fr;
+
+            max-width: 700px;
+
+            gap: 2rem;
+          }
+
+          .contact-heading p {
+            max-width: none;
+          }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 767px) {
+
+          .contact-grid {
+            gap: 1.5rem;
+          }
+
+          .contact-form-card {
+            padding: 1.35rem;
+          }
+
+          .contact-heading h3 {
+            font-size: 1.3rem;
+          }
+
+          .contact-heading p {
+            font-size: 0.9rem;
+          }
+
+          .contact-method {
+            padding: 1rem;
+          }
+
+          .contact-method-icon {
+            width: 44px;
+            height: 44px;
+          }
+
+          .contact-method-content strong {
+            font-size: 0.82rem;
+          }
+
+          .contact-method-content small {
+            font-size: 0.7rem;
+          }
+
+          .contact-meta-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .social-links {
+            grid-template-columns: 1fr;
+          }
+
+          .contact-success {
+            min-height: 300px;
+
+            padding:
+              1.5rem 0.5rem;
+          }
+
+        }
+
+
+        /* =========================================
+           SMALL MOBILE
+        ========================================== */
+
+        @media (max-width: 480px) {
+
+          .contact-form-card {
+            padding: 1.1rem;
+          }
+
+          .form-heading h3 {
+            font-size: 1.2rem;
+          }
+
+          .form-group input,
+          .form-group select,
+          .form-group textarea {
+            font-size: 0.85rem;
+
+            padding:
+              0.72rem 0.8rem;
+          }
+
+          .contact-method-content strong {
+            font-size: 0.76rem;
+          }
+
+        }
+
+
+        /* =========================================
+           REDUCED MOTION
+        ========================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+          .contact-section *,
+          .contact-section *::before,
+          .contact-section *::after {
+            transition-duration:
+              0.01ms !important;
+
+            animation-duration:
+              0.01ms !important;
+          }
+
+          .contact-method:hover,
+          .social-link:hover {
+            transform: none;
+          }
+
+        }
+
+      `}</style>
     </section>
   );
 };
