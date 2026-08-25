@@ -51,18 +51,19 @@ export const Navbar: React.FC = () => {
         }}
       >
         <a
-          href="#"
-          style={{
-            display: 'flex',
-            alignItems: 'center'
-          }}
-        >
-          <img
-            src="/assets/chennai-coder-logo.png"
-            alt="Chennai Coder Logo"
-            className="brand-logo-img"
-          />
-        </a>
+  href="/"
+  aria-label="Chennai Coder - Home"
+  style={{
+    display: 'flex',
+    alignItems: 'center'
+  }}
+>
+  <img
+    src="/assets/chennai-coder-logo.png"
+    alt="Chennai Coder"
+    className="brand-logo-img"
+  />
+</a>
 
         {/* Desktop Nav Links */}
         <nav
