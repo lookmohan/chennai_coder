@@ -6,53 +6,113 @@ export interface ProjectItem {
   githubUrl?: string;
   demoUrl?: string;
   category: string;
-  codeSnippet: string;
+  codeSnippet?: string;
 }
 
 export const projectsData: ProjectItem[] = [
   {
-    id: "hr-geo-vis",
-    title: "Industrial HR Geo Visualization",
-    description: "A data visualization project focused on analyzing HR and industrial workforce distribution using geographic mapping techniques and spatial analytics.",
-    technologies: ["Python", "Data Processing", "Data Visualization", "Maps Integration"],
-    githubUrl: "https://github.com/lookmohan",
-    category: "Data Analytics",
-    codeSnippet: `import folium\nimport pandas as pd\n\n# Load Industrial HR Geo Data\ndf = pd.read_csv('industrial_hr_locations.csv')\nm = folium.Map(location=[13.0827, 80.2707], zoom_start=11)\nfor idx, row in df.iterrows():\n    folium.CircleMarker([row['lat'], row['lon']], radius=row['workforce_density']).add_to(m)`
+    id: "industrial-hr-geo-visualization",
+    title: "Industrial HR Geo-Visualization",
+    description:
+      "An interactive data analytics dashboard for exploring industrial workforce distribution across Indian states. The project combines data processing, geographic visualization, NLP-based analysis, and interactive charts to make workforce data easier to understand.",
+    technologies: [
+      "Python",
+      "Streamlit",
+      "Pandas",
+      "Plotly",
+      "NLP",
+      "Data Visualization"
+    ],
+    githubUrl:
+      "https://github.com/lookmohan/industrial-hr-geo-visualization",
+    category: "Data Analytics"
   },
-  {
-    id: "simple-rag-assistant",
-    title: "Simple RAG Assistant",
-    description: "An AI-powered document retrieval assistant allowing users to query custom PDF/text files using natural language and context-aware LLM answers.",
-    technologies: ["Python", "LangChain", "LLMs", "Embeddings", "Vector Database"],
-    githubUrl: "https://github.com/lookmohan",
-    category: "Generative AI",
-    codeSnippet: `from langchain.chains import RetrievalQA\nfrom langchain.vectorstores import Chroma\nfrom langchain_openai import OpenAIEmbeddings, ChatOpenAI\n\nvectorstore = Chroma(persist_directory="./db", embedding_function=OpenAIEmbeddings())\nqa_chain = RetrievalQA.from_chain_type(llm=ChatOpenAI(model="gpt-4o-mini"), retriever=vectorstore.as_retriever())`
-  },
+
   {
     id: "multi-agent-healthcare-rag",
     title: "Multi-Agent Healthcare RAG System",
-    description: "A multi-agent AI system designed to retrieve medical research knowledge, validate source accuracy, and synthesize intelligent diagnostic context.",
-    technologies: ["Python", "LangChain", "LLMs", "RAG", "AI Agents"],
-    githubUrl: "https://github.com/lookmohan",
-    category: "AI Agents",
-    codeSnippet: `class HealthcareAgentWorkflow:\n    def __init__(self):\n        self.retriever_agent = Agent(role="Medical Retriever")\n        self.validator_agent = Agent(role="Clinical Validator")\n    \n    def run_query(self, patient_query):\n        docs = self.retriever_agent.fetch(patient_query)\n        return self.validator_agent.verify_and_summarize(docs)`
+    description:
+      "A confidence-aware multi-agent Retrieval-Augmented Generation system for healthcare-related queries. The project uses specialized AI agents to retrieve relevant knowledge, process information, and collaborate through a LangGraph-based workflow.",
+    technologies: [
+      "Python",
+      "LangGraph",
+      "LangChain",
+      "RAG",
+      "FAISS",
+      "LLMs",
+      "AI Agents"
+    ],
+    githubUrl:
+      "https://github.com/lookmohan/multi-agent-healthcare-rag-langgraph",
+    category: "Generative AI"
   },
+
   {
-    id: "bengaluru-house-price",
-    title: "Bengaluru House Price Prediction",
-    description: "A machine learning predictive model that calculates residential property prices in Bengaluru based on square footage, location density, and amenities.",
-    technologies: ["Python", "Pandas", "Scikit-learn", "Machine Learning"],
-    githubUrl: "https://github.com/lookmohan",
-    category: "Machine Learning",
-    codeSnippet: `from sklearn.ensemble import GradientBoostingRegressor\nfrom sklearn.model_selection import train_test_split\n\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\nmodel = GradientBoostingRegressor(n_estimators=200, learning_rate=0.1)\nmodel.fit(X_train, y_train)\nscore = model.score(X_test, y_test)`
+    id: "neuralchat",
+    title: "NeuralChat",
+    description:
+      "A modern desktop chat application developed with Python and PySide6. NeuralChat provides real-time messaging, private conversations, and online user management using socket-based communication and SQLite for local data management.",
+    technologies: [
+      "Python",
+      "PySide6",
+      "SQLite",
+      "Socket Programming",
+      "GUI Development"
+    ],
+    githubUrl: "https://github.com/lookmohan/NeuralChat",
+    category: "Python Development"
   },
+
   {
-    id: "space-invaders-game",
-    title: "Space Invaders Python Game",
-    description: "An arcade game built in Python using Pygame to demonstrate object-oriented programming fundamentals, collision detection, and game loops.",
-    technologies: ["Python", "Pygame", "Object-Oriented Programming"],
-    githubUrl: "https://github.com/lookmohan",
-    category: "Python Development",
-    codeSnippet: `import pygame\nclass Player(pygame.sprite.Sprite):\n    def __init__(self, x, y):\n        super().__init__()\n        self.image = pygame.Surface((50, 30))\n        self.rect = self.image.get_rect(center=(x, y))\n    def update(self):\n        keys = pygame.key.get_pressed()\n        if keys[pygame.K_LEFT]: self.rect.x -= 5`
+    id: "imdb-2024-data-scraping",
+    title: "IMDb 2024 Data Scraping & Visualization",
+    description:
+      "An end-to-end data analytics project that collects IMDb 2024 movie information, cleans and processes the dataset, stores structured data in SQLite, and presents interactive visualizations through a Streamlit dashboard.",
+    technologies: [
+      "Python",
+      "Selenium",
+      "Pandas",
+      "SQLite",
+      "SQLAlchemy",
+      "Streamlit",
+      "Plotly"
+    ],
+    githubUrl:
+      "https://github.com/lookmohan/IMDb-2024-Data-Scraping-Visualization",
+    category: "Data Analytics"
+  },
+
+  {
+    id: "ai-workout-planner-agent",
+    title: "AI-Powered Workout Planner Agent",
+    description:
+      "An AI-powered workout planning application built with Langflow and a Mistral-based language model. The system generates personalized workout plans and nutrition recommendations based on a user's fitness goals and requirements.",
+    technologies: [
+      "Python",
+      "Langflow",
+      "Mistral LLM",
+      "AI Agents",
+      "Prompt Engineering"
+    ],
+    githubUrl:
+      "https://github.com/lookmohan/AI-Powered-Workout-Planner-Agent",
+    category: "AI Agents"
+  },
+
+  {
+    id: "employee-management-system",
+    title: "Employee Management System",
+    description:
+      "A desktop employee management application built with Python, Tkinter, and SQLite. It provides a simple interface for adding, updating, deleting, and viewing employee records while demonstrating GUI development and database integration.",
+    technologies: [
+      "Python",
+      "Tkinter",
+      "SQLite",
+      "CRUD Operations",
+      "Database Management"
+    ],
+    githubUrl:
+      "https://github.com/lookmohan/Employee-Management-System",
+    category: "Python Development"
   }
 ];
