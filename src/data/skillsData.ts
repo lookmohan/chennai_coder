@@ -6,8 +6,16 @@ export interface SkillCategory {
 export const skillsData: SkillCategory[] = [
   {
     title: "Programming Languages",
-    skills: ["Python", "Scala", "JavaScript", "SQL", "HTML", "CSS"]
+    skills: [
+      "Python",
+      "Scala",
+      "JavaScript",
+      "SQL",
+      "HTML",
+      "CSS"
+    ]
   },
+
   {
     title: "Artificial Intelligence & Machine Learning",
     skills: [
@@ -21,20 +29,49 @@ export const skillsData: SkillCategory[] = [
       "AI Agents"
     ]
   },
+
   {
     title: "Python Development",
-    skills: ["FastAPI", "Flask", "Pandas", "NumPy", "Scikit-learn", "PyTorch", "TensorFlow"]
+    skills: [
+      "FastAPI",
+      "Flask",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "PyTorch",
+      "TensorFlow"
+    ]
   },
+
   {
     title: "AI Frameworks & Tools",
-    skills: ["LangChain", "OpenAI API", "Hugging Face", "Vector Databases", "Prompt Engineering"]
+    skills: [
+      "LangChain",
+      "OpenAI API",
+      "Hugging Face",
+      "Vector Databases",
+      "Prompt Engineering"
+    ]
   },
+
   {
     title: "Databases",
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "SQLite"]
+    skills: [
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "SQLite"
+    ]
   },
+
   {
     title: "Developer Tools",
-    skills: ["Git", "GitHub", "Docker", "Linux", "VS Code"]
+    skills: [
+      "Git",
+      "GitHub",
+      "Docker",
+      "Linux",
+      "VS Code"
+    ]
   }
 ];
