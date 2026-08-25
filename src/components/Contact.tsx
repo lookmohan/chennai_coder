@@ -218,7 +218,7 @@ export const Contact: React.FC = () => {
                   </span>
 
                   <strong>
-                    Online & Chennai
+                    Online
                   </strong>
                 </div>
 
