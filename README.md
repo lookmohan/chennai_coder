@@ -1,292 +1,68 @@
-<div align="center">
+# Chennai Coder — Business Website
 
-<img src="public/assets/chennai-coder-logo.png" width="140" alt="Chennai Coder Logo">
+React + TypeScript + Vite + Tailwind CSS + React Router + Framer Motion.
 
-# 🚀 Chennai Coder
+## Setup
 
-### AI Solutions • Software Development • Technology Education
-
-<p>
-Building intelligent software for businesses while empowering the next generation of developers through practical, industry-focused training.
-</p>
-
-<p>
-  <a href="https://chennai-coder.vercel.app/" target="_blank" rel="noopener noreferrer">🌐 Website</a> •
-  <a href="https://chennai-coder.vercel.app/#courses" target="_blank" rel="noopener noreferrer">📚 Courses</a> •
-  <a href="https://chennai-coder.vercel.app/#contact" target="_blank" rel="noopener noreferrer">💼 Hire Us</a> •
-</p>
-
-</div>
-
----
-
-## 🏢 About Chennai Coder
-
-<p align="justify">
-
-<b>Chennai Coder</b> is a technology company specializing in
-<b>Artificial Intelligence</b>,
-<b>Modern Software Development</b>,
-and
-<b>Professional Technology Education</b>.
-
-We help businesses build scalable software products while enabling students to master programming through practical learning and real-world projects.
-
-</p>
-
----
-
-## 🚀 What We Do
-
-<table>
-
-<tr>
-
-<td width="50%">
-
-### 🤖 AI Solutions
-
-- AI Assistants
-- Generative AI
-- AI Agents
-- RAG Applications
-- Prompt Engineering
-- Computer Vision
-- Business Automation
-- Machine Learning
-
-</td>
-
-<td width="50%">
-
-### 💻 Software Development
-
-- Web Applications
-- Backend APIs
-- FastAPI
-- Full Stack Development
-- Database Design
-- Cloud Deployment
-- REST APIs
-- Business Software
-
-</td>
-
-</tr>
-
-</table>
-
----
-
-## 🎓 Professional Training
-
-<table>
-
-<tr>
-<td>🐍 Python</td>
-<td>⚛ React</td>
-<td>⚡ FastAPI</td>
-</tr>
-
-<tr>
-<td>🗄 SQL</td>
-<td>🤖 AI & ML</td>
-<td>👁 Computer Vision</td>
-</tr>
-
-<tr>
-<td>🧠 LLM Development</td>
-<td>🔗 Git & GitHub</td>
-<td>💻 Software Engineering</td>
-</tr>
-
-</table>
-
----
-
-## ⭐ Why Choose Chennai Coder?
-
-✔ Industry-Oriented Learning
-
-✔ Practical Project-Based Training
-
-✔ Real-World AI Applications
-
-✔ One-to-One Mentorship
-
-✔ Career Guidance
-
-✔ Portfolio Development
-
-✔ Interview Preparation
-
-✔ Affordable Courses
-
-✔ Continuous Learning Support
-
----
-
-## 💻 Technology Stack
-
-<details>
-
-<summary><b>Programming Languages</b></summary>
-
-- Python
-- JavaScript
-- TypeScript
-- SQL
-- HTML
-- CSS
-
-</details>
-
-<details>
-
-<summary><b>Artificial Intelligence</b></summary>
-
-- OpenAI API
-- LangChain
-- Machine Learning
-- Deep Learning
-- RAG
-- AI Agents
-- Computer Vision
-- Generative AI
-
-</details>
-
-<details>
-
-<summary><b>Backend</b></summary>
-
-- FastAPI
-- Flask
-- REST APIs
-
-</details>
-
-<details>
-
-<summary><b>Frontend</b></summary>
-
-- React
-- Vite
-
-</details>
-
-<details>
-
-<summary><b>Databases</b></summary>
-
-- PostgreSQL
-- MongoDB
-- MySQL
-- SQLite
-
-</details>
-
----
-
-## 📚 Learning Journey
-
-```text
-Learn
-   │
-   ▼
-Practice
-   │
-   ▼
-Build Projects
-   │
-   ▼
-Launch Your Career
+```bash
+npm install
+npm run dev
 ```
 
----
+Build for production with `npm run build` (type-checks, then bundles).
 
-## 🎯 Who We Help
+## Theme
 
-<table>
+Light, clean and professional — off-white background (`#F7F8FC`), white
+cards with soft shadows, and the brand's blue-to-cyan gradient (from the
+logo) as the accent throughout. Typography is Space Grotesk (headings) +
+Manrope (body).
 
-<tr>
+## Animation
 
-<td align="center">
+Every section reveals on scroll (fade + slide, staggered across grids/lists).
+Buttons, cards and nav links have hover/tap motion. Page navigation
+cross-fades via Framer Motion's `AnimatePresence`, and the page scrolls to
+the top once the old page has finished fading out. The mobile menu slides
+open/closed with staggered item entrances. The FAQ accordion animates open
+height rather than snapping.
 
-🎓
+Reduced motion: Framer Motion animations respect the visitor's OS
+"reduce motion" setting (via `MotionConfig` in `src/main.tsx`), as do the
+CSS transitions. The slow background scenery (`.ambient`) is deliberately
+exempt — see `src/index.css`.
 
-### Students
+## Site structure (multi-page)
 
-</td>
+- `/` — Home: hero + condensed previews of every section below, each
+  linking to its full page
+- `/services` — full service breakdown
+- `/projects` — all verified projects (real GitHub links only)
+- `/training` — full course list
+- `/about` — founder bio + why Chennai Coder
+- `/contact` — enquiry form + FAQ
+- `/privacy`, `/terms` — policy pages
+- Breadcrumbs on every inner page
 
-<td align="center">
+Routing is client-side (React Router). `_redirects` (Netlify) and
+`vercel.json` (Vercel) are included so deep links like `/about` don't 404
+on a fresh page load — if you deploy elsewhere, make sure the host
+rewrites all paths to `index.html`.
 
-💼
+## SEO
 
-### Professionals
+`src/hooks/usePageTitle.ts` sets the title, description, canonical URL and
+Open Graph / Twitter tags for each page. The site's public URL lives in
+`src/lib/site.ts` (`SITE_URL`). The 404 page is marked `noindex`.
 
-</td>
+## Still needed
 
-<td align="center">
-
-🚀
-
-### Startups
-
-</td>
-
-<td align="center">
-
-🏢
-
-### Businesses
-
-</td>
-
-</tr>
-
-</table>
-
----
-
-## 🌍 Vision
-
-> To become one of India's leading AI, Software Development, and Technology Education companies by empowering learners and delivering innovative digital solutions.
-
----
-
-## 🎯 Mission
-
-> Helping businesses build intelligent software while preparing future software engineers through practical, industry-driven education.
-
----
-
-## 📞 Connect With Us
-
-<div align="center">
-
-### 🌐 Chennai Coder
-
-📧 chennaicoder.support@gmail.com
-
-📱 +91 7395981362
-
-🌍 https://your-domain.vercel.app
-
-</div>
-
----
-
-<div align="center">
-
-# 🚀 Build AI
-
-# 💻 Create Software
-
-# 🎓 Learn Programming
-
-### Empowering Students • Transforming Businesses
-
-Made with ❤️ by **Chennai Coder**
-
-</div>
+- A 1200×630 social-share image (`og:image` / `twitter:image` currently use the logo)
+- Real training prices, once decided (currently "Contact for pricing")
+- A decision on the contact form: keep the WhatsApp behavior, or wire it
+  to a backend / service like Formspree
+- Decide whether to keep the `aggregateRating` block in the JSON-LD
+  (`index.html`) — Google's guidelines discourage self-published ratings
+- Privacy policy: mention Google Fonts, or self-host the fonts
+- `src/components/ScrollToTop.tsx` and `src/components/GlobeBackground.tsx`
+  are no longer used and can be deleted

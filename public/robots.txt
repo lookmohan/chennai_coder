@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://chennaicoder.in/sitemap.xml
+
+Sitemap: https://chennai-coder.vercel.app/sitemap.xml
