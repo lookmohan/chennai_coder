@@ -2,43 +2,95 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
     <meta name="theme-color" content="#1F4FD8" />
+
     <link rel="icon" type="image/png" href="/logo.png" />
 
-    <title>Chennai Coder — AI, Software & Automation Development, Chennai</title>
+    <!-- Primary SEO -->
+    <title>Chennai Coder — AI, Software & Programming in Chennai</title>
+
     <meta
       name="description"
-      content="Chennai Coder builds AI applications, software and automation systems for businesses and startups, and provides practical technical training in Python, SQL, AI/ML and more."
+      content="Chennai Coder is a software and programming training institute in Chennai offering practical training in Python, SQL, AI, Machine Learning and Generative AI, plus AI development, software and automation solutions."
     />
-    <link rel="canonical" href="https://chennai-coder.vercel.app/" />
 
+    <link
+      rel="canonical"
+      href="https://chennai-coder.vercel.app/"
+    />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Chennai Coder" />
-    <meta property="og:title" content="Chennai Coder — AI, Software & Automation Development" />
+
+    <meta
+      property="og:site_name"
+      content="Chennai Coder"
+    />
+
+    <meta
+      property="og:title"
+      content="Chennai Coder — AI, Software & Programming in Chennai"
+    />
+
     <meta
       property="og:description"
-      content="AI development, software development, automation and technical training — based in Chennai, Tamil Nadu."
+      content="Practical AI, programming and software training in Chennai, along with AI development, software development and automation solutions."
     />
-    <meta property="og:image" content="https://chennai-coder.vercel.app/logo.png" />
-    <meta property="og:url" content="https://chennai-coder.vercel.app/" />
 
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Chennai Coder — AI, Software & Automation Development" />
+    <meta
+      property="og:image"
+      content="https://chennai-coder.vercel.app/logo.png"
+    />
+
+    <meta
+      property="og:url"
+      content="https://chennai-coder.vercel.app/"
+    />
+
+    <!-- Twitter / X -->
+    <meta
+      name="twitter:card"
+      content="summary"
+    />
+
+    <meta
+      name="twitter:title"
+      content="Chennai Coder — AI, Software & Programming in Chennai"
+    />
+
     <meta
       name="twitter:description"
-      content="AI development, software development, automation and technical training — based in Chennai, Tamil Nadu."
+      content="Practical AI, programming and software training in Chennai, along with AI development, software development and automation solutions."
     />
-    <meta name="twitter:image" content="https://chennai-coder.vercel.app/logo.png" />
 
+    <meta
+      name="twitter:image"
+      content="https://chennai-coder.vercel.app/logo.png"
+    />
+
+    <!--
+      Structured Data
+      Helps search engines understand Chennai Coder
+      as a local software/programming training business.
+    -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://chennai-coder.vercel.app/#business",
         "name": "Chennai Coder",
         "url": "https://chennai-coder.vercel.app/",
-        "founder": { "@type": "Person", "name": "Mohanraj" },
-        "description": "AI development, software development, automation and technical training for businesses and startups.",
+        "logo": "https://chennai-coder.vercel.app/logo.png",
+        "image": "https://chennai-coder.vercel.app/logo.png",
+        "description": "Chennai Coder is a software and programming training institute in Chennai offering practical training in Python, SQL, Machine Learning, Artificial Intelligence and Generative AI, along with AI development, software development and automation services.",
+        "telephone": "+91 7395981362",
+        "email": "chennaicoder.support@gmail.com",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "No. 41, A, Mettur 2nd St, Madhuramettur, Bharathidasan Nagar, Surapet",
@@ -47,31 +99,48 @@
           "postalCode": "600066",
           "addressCountry": "IN"
         },
-        "email": "chennaicoder.support@gmail.com",
-        "telephone": "+91 7395981362",
+        "founder": {
+          "@type": "Person",
+          "name": "Mohanraj"
+        },
         "sameAs": [
           "https://github.com/lookmohan",
           "https://www.linkedin.com/in/moganraj",
           "https://instagram.com/chennai_coder"
-        ],
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "5.0",
-          "reviewCount": "9"
-        }
+        ]
       }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
+
   <body class="bg-bg text-text font-body antialiased">
-    <noscript>Please enable JavaScript to view the Chennai Coder website.</noscript>
+
+    <noscript>
+      Please enable JavaScript to view the Chennai Coder website.
+    </noscript>
+
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+    <script
+      type="module"
+      src="/src/main.tsx"
+    ></script>
+
   </body>
 </html>
